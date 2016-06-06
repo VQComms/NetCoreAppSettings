@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using depa;
 using System.IO;
 
+
 namespace app
 {
     public class Program
@@ -21,9 +22,10 @@ namespace app
 
             depAConfig.DepBConfiguration.Smtp = depAConfig.Smtp;
 
+            var messageProcessor = new MessageProcessor();
+            messageProcessor.Start(depAConfig);
 
-            var depaClass = new DepAClass(depAConfig);
-            depaClass.DepAMethod();
+   
             Console.ReadKey();
         }
     }
